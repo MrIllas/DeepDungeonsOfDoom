@@ -19,6 +19,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var btnChar2: UIButton!
     @IBOutlet weak var btnChar3: UIButton!
     
+    var charHero:[Hero]!
+    var itemList:[Item]!
+    var startMoney:Int! = 0
+    var startExp:Int! = 0
+    
+    var char1Item:[Item]!
+    
     @IBAction func selChar(_ sender: AnyObject) {
         switch sender.tag{
             case 1:
@@ -34,5 +41,12 @@ class ViewController: UIViewController {
                 print("Woops!")
         }
     }
+    
+    func itemDeclaration(){
+        itemList.append(Item.init(nombre: "Casco", coste: 100, ataque: 0, defensa: 3, magia: 0, suerte: 0, imagen: ""))
 
+    }
+    func charDeclaration(){
+        charHero.append(Hero.init(vida: 4, nombre: "Soldier", dinero: startMoney, exp: startExp, Stuff: char1Item, ataque: 3, defensa: 9, magia: 1, suerte: 5, imagen: ""))
+    }
 }

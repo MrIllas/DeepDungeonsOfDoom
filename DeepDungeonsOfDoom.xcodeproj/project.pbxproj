@@ -14,6 +14,8 @@
 		19D5172C21AF0DFB003687C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19D5172A21AF0DFB003687C0 /* LaunchScreen.storyboard */; };
 		19D5173721AF0DFB003687C0 /* DeepDungeonsOfDoomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D5173621AF0DFB003687C0 /* DeepDungeonsOfDoomTests.swift */; };
 		19D5174221AF0DFB003687C0 /* DeepDungeonsOfDoomUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D5174121AF0DFB003687C0 /* DeepDungeonsOfDoomUITests.swift */; };
+		19D5175021AF174B003687C0 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D5174F21AF174B003687C0 /* Hero.swift */; };
+		19D5175221AF193D003687C0 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D5175121AF193D003687C0 /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		19D5173D21AF0DFB003687C0 /* DeepDungeonsOfDoomUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeepDungeonsOfDoomUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		19D5174121AF0DFB003687C0 /* DeepDungeonsOfDoomUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepDungeonsOfDoomUITests.swift; sourceTree = "<group>"; };
 		19D5174321AF0DFB003687C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		19D5174F21AF174B003687C0 /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
+		19D5175121AF193D003687C0 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 				19D5172821AF0DFB003687C0 /* Assets.xcassets */,
 				19D5172A21AF0DFB003687C0 /* LaunchScreen.storyboard */,
 				19D5172D21AF0DFB003687C0 /* Info.plist */,
+				19D5174F21AF174B003687C0 /* Hero.swift */,
+				19D5175121AF193D003687C0 /* Item.swift */,
 			);
 			path = DeepDungeonsOfDoom;
 			sourceTree = "<group>";
@@ -256,8 +262,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19D5175221AF193D003687C0 /* Item.swift in Sources */,
 				19D5172421AF0DFB003687C0 /* ViewController.swift in Sources */,
 				19D5172221AF0DFB003687C0 /* AppDelegate.swift in Sources */,
+				19D5175021AF174B003687C0 /* Hero.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
