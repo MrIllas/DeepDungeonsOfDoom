@@ -20,14 +20,14 @@ class Hero{
     var nombre:String! = ""
     var dinero:Int! = 0
     var exp:Int! = 0
-    var Stuff:[Item]!
+    var Stuff:[Item]! = []
     
     var ataque:Int! = 0
     var defensa:Int! = 0
     var magia:Int! = 0
     var suerte:Int! = 0
     
-    var imagen:UIImage?
+    var imagen:UIImage! = UIImage(named: "hero4")
     
     init(vida:Int!, nombre:String!, dinero:Int!, exp:Int!, Stuff:[Item]!, ataque:Int!, defensa:Int!, magia:Int!, suerte:Int!, imagen:UIImage?){
         self.vida = vida
@@ -42,5 +42,53 @@ class Hero{
         self.suerte = suerte
         
         self.imagen = imagen
+    }
+    
+    func getImagen() -> UIImage{
+        return self.imagen
+    }
+    
+    func getVida() -> Int{
+        return self.vida
+    }
+    
+    func getNombre()->String{
+        return self.nombre
+    }
+    
+    func getAtq()-> Int{
+        return self.ataque + calc(type: "atq")
+    }
+    func getDef()-> Int{
+        return self.defensa + calc(type: "def")
+    }
+    func getMag()-> Int{
+        return self.magia + calc(type: "mag")
+    }
+    func getLck()-> Int{
+        return self.suerte + calc(type: "lck")
+    }
+    
+    func calc(type:String) -> Int{
+        var toReturn:Int! = 0
+        for i in Stuff{
+            switch type{
+            case "atq":
+                toReturn += i.getAtq()
+                break
+            case "def":
+                toReturn += i.getDef()
+                break
+            case "mag":
+                toReturn += i.getMag()
+                break
+            case "lck":
+                toReturn += i.getLck()
+                break
+            default:
+                print("Hello")
+            }
+        }
+        return toReturn
     }
 }

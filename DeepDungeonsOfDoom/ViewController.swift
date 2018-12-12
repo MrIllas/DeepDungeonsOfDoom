@@ -9,44 +9,158 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    override func viewDidLoad() {
+    
+     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Initialize objects
-        itemDeclaration()
-        charDeclaration()
+        
+        itemDeclaration()//Crea los items
+        charItemIni() //Guarda los items iniciales de los heroes
+        charDeclaration() //Crea los Heroes
+        writeHeroList() //Crea la lista de heroes
     }
     
+    
     @IBOutlet weak var btnChar1: UIButton!
-    @IBOutlet weak var char1Skin: UIImageView!
     
     
     @IBOutlet weak var btnChar2: UIButton!
     @IBOutlet weak var btnChar3: UIButton!
     
-    var charHero:[Hero]!
-    var itemList:[Item]!
+    @IBOutlet weak var imgChar1: UIImageView!
+    @IBOutlet weak var labelName1: UILabel!
+    @IBOutlet weak var labelChar1Atq: UILabel!
+    @IBOutlet weak var labelChar1Def: UILabel!
+    @IBOutlet weak var labelChar1Mag: UILabel!
+    @IBOutlet weak var labelChar1Lck: UILabel!
+    
+    
+    @IBOutlet weak var imgChar2: UIImageView!
+    @IBOutlet weak var labelName2: UILabel!
+    @IBOutlet weak var labelChar2Atq: UILabel!
+    @IBOutlet weak var labelChar2Def: UILabel!
+    @IBOutlet weak var labelChar2Mag: UILabel!
+    @IBOutlet weak var labelChar2Lck: UILabel!
+    
+    
+    @IBOutlet weak var imgChar3: UIImageView!
+    @IBOutlet weak var labelName3: UILabel!
+    @IBOutlet weak var labelChar3Atq: UILabel!
+    @IBOutlet weak var labelChar3Def: UILabel!
+    @IBOutlet weak var labelChar3Mag: UILabel!
+    @IBOutlet weak var labelChar3Lck: UILabel!
+    
+    
+    
+    var charHero:[Hero]! = []
+    var itemList:[Item]! = []
     var startMoney:Int! = 0
     var startExp:Int! = 0
     
-    var char1Item:[Item]!
-    var char2Item:[Item]!
-    var char3Item:[Item]!
+    var char1Item:[Item]! = []
+    var char2Item:[Item]! = []
+    var char3Item:[Item]! = []
+    
     
     @IBAction func selChar(_ sender: AnyObject) {
+        let newView = storyboard!.instantiateViewController(withIdentifier: "menu") as? Menu
+        self.present(newView!, animated: true, completion: nil)
         switch sender.tag{
             case 1:
-                print("1")
+                print("0")
                 break
             case 2:
-                print("2")
+                print("1")
                 break
             case 3:
-                print("3")
+                print("2")
                 break
             default:
                 print("Woops!")
+        }
+    }
+    
+    func writeHeroList(){
+        var xPortrait:Int = 90
+        var yPortrait:Int = 295
+        var xNombre:Int = 145
+        var yDiferrence1 = 30
+        var hp:Int = 0
+        
+        imgChar1.image = charHero[0].getImagen()
+        labelName1.text = charHero[0].getNombre()
+        labelChar1Atq.text = String(charHero[0].getAtq())
+        labelChar1Def.text = String(charHero[0].getDef())
+        labelChar1Mag.text = String(charHero[0].getMag())
+        labelChar1Lck.text = String(charHero[0].getLck())
+        
+        
+        imgChar2.image = charHero[1].getImagen()
+        labelName2.text = charHero[1].getNombre()
+        labelChar2Atq.text = String(charHero[1].getAtq())
+        labelChar2Def.text = String(charHero[1].getDef())
+        labelChar2Mag.text = String(charHero[1].getMag())
+        labelChar2Lck.text = String(charHero[1].getLck())
+        
+        imgChar3.image = charHero[2].getImagen()
+        labelName3.text = charHero[2].getNombre()
+        labelChar3Atq.text = String(charHero[2].getAtq())
+        labelChar3Def.text = String(charHero[2].getDef())
+        labelChar3Mag.text = String(charHero[2].getMag())
+        labelChar3Lck.text = String(charHero[2].getLck())
+        
+        for h in charHero{
+        
+            /*//Portrait
+            var imagePortrait = h.getImagen()
+            var imageViewPortrait = UIImageView(image: imagePortrait)
+            imageViewPortrait.frame = CGRect(x: xPortrait, y: yPortrait, width: 50, height: 70)
+            view.addSubview(imageViewPortrait)
+            //yPortrait += 147
+            */
+            //HP
+            hp = h.getVida()
+            var xCorazon:Int = 230
+            for i in 0..<hp{
+                var viewCorazon = UIImageView(image: UIImage(named: "heart"))
+                viewCorazon.frame = CGRect(x: xCorazon, y: yPortrait, width: 20, height: 20)
+                view.addSubview(viewCorazon)
+                xCorazon += 22
+                
+            }
+            yPortrait += 147
+            /*
+            
+            
+            //Stats
+            
+                //name
+            var name = UILabel(frame: CGRect(x: xNombre, y: yPortrait, width: 200, height: 21))
+            name.text = h.getNombre()
+            name.font = UIFont(name: "Halvetica", size: 12)
+            name.textColor = UIColor.white
+            view.addSubview(name)
+                //Atq
+            var atqName = UILabel(frame: CGRect(x: xNombre, y: yPortrait+yDiferrence1, width: 200, height: 21))
+            atqName.font = UIFont.systemFont(ofSize: 10)
+            atqName.text = "ATQ"
+            
+            atqName.textColor = UIColor.white
+            view.addSubview(atqName)
+            var imageAtq = UIImageView(image: UIImage(named: "damage"))
+            imageAtq.frame = CGRect(x: xNombre+22, y: yPortrait+yDiferrence1, width: 20, height: 20)
+            view.addSubview(imageAtq)
+            
+            /*var atqName = UILabel(frame: CGRect(x: xNombre, y: yPortrait+yDiferrence1, width: 200, height: 21))
+            atqName.font = UIFont.systemFont(ofSize: 10)
+            atqName.text = "ATQ"*/
+            
+            atqName.textColor = UIColor.white
+            view.addSubview(atqName)
+                //DEF
+            yPortrait += 147
+ */
         }
     }
     
@@ -104,12 +218,17 @@ class ViewController: UIViewController {
         //Pociones
         itemList.append(Item.init(nombre: "Poción pequeña de sanación", coste: 50, ataque: 0, defensa: 0, magia: 0, suerte: 0, imagen: UIImage(named: "potion2")))
         itemList.append(Item.init(nombre: "Gran poción de sanación", coste: 100, ataque: 0, defensa: 0, magia: 0, suerte: 0, imagen: UIImage(named: "potion")))
+ }
+    func charItemIni(){
+        char1Item.append(itemList[1])
+        char2Item.append(itemList[1])
+        char3Item.append(itemList[1])
     }
     
     func charDeclaration(){
-        charHero.append(Hero.init(vida: 4, nombre: "Soldier66", dinero: startMoney, exp: startExp, Stuff: char1Item, ataque: 3, defensa: 8, magia: 1, suerte: 3, imagen: UIImage(named: "hero1")))
-        charHero.append(Hero.init(vida: 4, nombre: "Ashe", dinero: startMoney, exp: startExp, Stuff: char2Item, ataque: 5, defensa: 5, magia: 0, suerte: 8, imagen: UIImage(named: "hero2")))
-        charHero.append(Hero.init(vida: 4, nombre: "Kel'thuzad", dinero: startMoney, exp: startExp, Stuff: char3Item, ataque: 4, defensa: 3, magia: 8, suerte: 3, imagen: UIImage(named: "hero3")))
+        charHero.append(Hero.init(vida: 4, nombre: "Soldier66", dinero: startMoney, exp: startExp, Stuff: char1Item, ataque: 3, defensa: 4, magia: 1, suerte: 3, imagen: UIImage(named: "heroe1")))
+        charHero.append(Hero.init(vida: 3, nombre: "Ashe", dinero: startMoney, exp: startExp, Stuff: char2Item, ataque: 5, defensa: 5, magia: 0, suerte: 8, imagen: UIImage(named: "heroe2")))
+        charHero.append(Hero.init(vida: 2, nombre: "Kel'thuzad", dinero: startMoney, exp: startExp, Stuff: char3Item, ataque: 4, defensa: 3, magia: 8, suerte: 3, imagen: UIImage(named: "heroe3")))
         
     }
 }
