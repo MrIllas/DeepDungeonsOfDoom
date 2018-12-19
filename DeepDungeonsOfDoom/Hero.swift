@@ -91,4 +91,8 @@ class Hero{
         }
         return toReturn
     }
+    
+    func getStuff(index:Int)-> Item{
+        return self.Stuff[index]
+    }
 }

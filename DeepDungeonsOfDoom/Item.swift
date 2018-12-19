@@ -47,4 +47,8 @@ class Item {
     func getLck() -> Int{
         return self.suerte
     }
+    
+    func getImagen()-> UIImage{
+        return self.imagen
+    }
 }

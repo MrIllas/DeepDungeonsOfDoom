@@ -7,7 +7,15 @@
 //
 
 import UIKit
+var charHero:[Hero]! = []
+var itemList:[Item]! = []
 
+
+var char1Item:[Item]! = []
+var char2Item:[Item]! = []
+var char3Item:[Item]! = []
+
+var selectedHero:Int = 0
 class ViewController: UIViewController {
     
      override func viewDidLoad() {
@@ -52,15 +60,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var labelChar3Lck: UILabel!
     
     
-    
-    var charHero:[Hero]! = []
-    var itemList:[Item]! = []
     var startMoney:Int! = 0
     var startExp:Int! = 0
-    
-    var char1Item:[Item]! = []
-    var char2Item:[Item]! = []
-    var char3Item:[Item]! = []
+   
     
     
     @IBAction func selChar(_ sender: AnyObject) {
@@ -69,12 +71,15 @@ class ViewController: UIViewController {
         switch sender.tag{
             case 1:
                 print("0")
+                selectedHero = 0
                 break
             case 2:
                 print("1")
+                selectedHero = 1
                 break
             case 3:
                 print("2")
+                selectedHero = 2
                 break
             default:
                 print("Woops!")
@@ -175,11 +180,11 @@ class ViewController: UIViewController {
         //Pechera
         itemList.append(Item.init(nombre: "Pechera de hierro", coste: 100, ataque: 0, defensa: 3, magia: 0, suerte: 0, imagen: UIImage(named: "armour")))
         itemList.append(Item.init(nombre: "Gran pechera de hierro", coste: 300, ataque: 0, defensa: 9, magia: 0, suerte: 0, imagen: UIImage(named: "armour2")))
-        itemList.append(Item.init(nombre: "Pechera de cuero", coste: 200, ataque: 0, defensa: 5, magia: 0, suerte: 0, imagen: UIImage(named: "armour3")))
+        itemList.append(Item.init(nombre: "Pechera de cuero", coste: 200, ataque: 0, defensa: 5, magia: 0, suerte: 0, imagen: UIImage(named: "armour3")))//7
         
         //Botas
         itemList.append(Item.init(nombre: "Botas de cuero comun", coste: 100, ataque: 0, defensa: 1, magia: 0, suerte: 0, imagen: UIImage(named: "boots")))
-        itemList.append(Item.init(nombre: "Botas de malla comun", coste: 200, ataque: 0, defensa: 3, magia: 0, suerte: 0, imagen: UIImage(named: "boots2")))
+        itemList.append(Item.init(nombre: "Botas de malla comun", coste: 200, ataque: 0, defensa: 3, magia: 0, suerte: 0, imagen: UIImage(named: "boots2")))//9
         
         //Capa
         itemList.append(Item.init(nombre: "Capa negra", coste: 100, ataque: 0, defensa: 1, magia: 1, suerte: 0, imagen: UIImage(named: "cap")))
@@ -191,7 +196,7 @@ class ViewController: UIViewController {
         
         //Anillos
         itemList.append(Item.init(nombre: "Anillo con diamante", coste: 300, ataque: 0, defensa: 0, magia: 5, suerte: 4, imagen: UIImage(named: "ring")))
-        itemList.append(Item.init(nombre: "Anillo de oro", coste: 200, ataque: 0, defensa: 0, magia: 3, suerte: 1, imagen: UIImage(named: "ring2")))
+        itemList.append(Item.init(nombre: "Anillo de oro", coste: 200, ataque: 0, defensa: 0, magia: 3, suerte: 1, imagen: UIImage(named: "ring2")))//15
         
         //Espadas
         itemList.append(Item.init(nombre: "Espada de madera", coste: 100, ataque: 1, defensa: 0, magia: 0, suerte: 0, imagen: UIImage(named: "sword4")))
@@ -220,7 +225,13 @@ class ViewController: UIViewController {
         itemList.append(Item.init(nombre: "Gran poción de sanación", coste: 100, ataque: 0, defensa: 0, magia: 0, suerte: 0, imagen: UIImage(named: "potion")))
  }
     func charItemIni(){
-        char1Item.append(itemList[1])
+        char1Item.append(itemList[4])//Casco
+        char1Item.append(itemList[7])//Pecho
+        char1Item.append(itemList[8])//Botas
+        char1Item.append(itemList[15])//Anillo
+        char1Item.append(itemList[16])//Espada
+        char1Item.append(itemList[29])//Escudo
+        
         char2Item.append(itemList[1])
         char3Item.append(itemList[1])
     }

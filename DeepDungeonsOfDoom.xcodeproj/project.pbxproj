@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1902F52C21C191E700AA8290 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1902F52B21C191E700AA8290 /* Menu.swift */; };
+		195F657E21CABDCA00EE942F /* Dungeon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195F657D21CABDCA00EE942F /* Dungeon.swift */; };
+		195F658021CABE2500EE942F /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195F657F21CABE2500EE942F /* Inventory.swift */; };
+		195F658221CABE3000EE942F /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195F658121CABE3000EE942F /* Shop.swift */; };
 		19D5172221AF0DFB003687C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D5172121AF0DFB003687C0 /* AppDelegate.swift */; };
 		19D5172421AF0DFB003687C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D5172321AF0DFB003687C0 /* ViewController.swift */; };
 		19D5172721AF0DFB003687C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19D5172521AF0DFB003687C0 /* Main.storyboard */; };
@@ -38,6 +41,9 @@
 
 /* Begin PBXFileReference section */
 		1902F52B21C191E700AA8290 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		195F657D21CABDCA00EE942F /* Dungeon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dungeon.swift; sourceTree = "<group>"; };
+		195F657F21CABE2500EE942F /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
+		195F658121CABE3000EE942F /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
 		19D5171E21AF0DFB003687C0 /* DeepDungeonsOfDoom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeepDungeonsOfDoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19D5172121AF0DFB003687C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19D5172321AF0DFB003687C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +118,9 @@
 				19D5174F21AF174B003687C0 /* Hero.swift */,
 				19D5175121AF193D003687C0 /* Item.swift */,
 				1902F52B21C191E700AA8290 /* Menu.swift */,
+				195F657D21CABDCA00EE942F /* Dungeon.swift */,
+				195F657F21CABE2500EE942F /* Inventory.swift */,
+				195F658121CABE3000EE942F /* Shop.swift */,
 			);
 			path = DeepDungeonsOfDoom;
 			sourceTree = "<group>";
@@ -267,9 +276,12 @@
 			files = (
 				19D5175221AF193D003687C0 /* Item.swift in Sources */,
 				19D5172421AF0DFB003687C0 /* ViewController.swift in Sources */,
+				195F658021CABE2500EE942F /* Inventory.swift in Sources */,
 				19D5172221AF0DFB003687C0 /* AppDelegate.swift in Sources */,
 				19D5175021AF174B003687C0 /* Hero.swift in Sources */,
+				195F657E21CABDCA00EE942F /* Dungeon.swift in Sources */,
 				1902F52C21C191E700AA8290 /* Menu.swift in Sources */,
+				195F658221CABE3000EE942F /* Shop.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

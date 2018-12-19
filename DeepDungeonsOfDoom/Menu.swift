@@ -11,6 +11,9 @@ import UIKit
 class Menu: UIViewController {
 
     @IBOutlet weak var btnBack: UIButton!
+    @IBOutlet weak var btnDungeon: UIButton!
+    @IBOutlet weak var btnInventory: UIButton!
+    @IBOutlet weak var btnShop: UIButton!
     
     
     @IBAction func onBackClick(_ sender: Any) {
@@ -25,7 +28,19 @@ class Menu: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func onClickToDungeon(_ sender: Any) {
+        let newView = storyboard!.instantiateViewController(withIdentifier: "start") as? ViewController
+        self.present(newView!, animated: true, completion: nil)
+    }
+    
+    @IBAction func onClickToInventory(_ sender: Any) {
+        
+    }
+    
+    
+    @IBAction func onClickToShop(_ sender: Any) {
+        
+    }
     /*
     // MARK: - Navigation
 
