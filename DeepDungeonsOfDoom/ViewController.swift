@@ -9,7 +9,7 @@
 import UIKit
 var charHero:[Hero]! = []
 var itemList:[Item]! = []
-
+var monsterList:[Monster]! = []
 
 var char1Item:[Item]! = []
 var char2Item:[Item]! = []
@@ -27,6 +27,7 @@ class ViewController: UIViewController {
         charItemIni() //Guarda los items iniciales de los heroes
         charDeclaration() //Crea los Heroes
         writeHeroList() //Crea la lista de heroes
+        monsterDeclaration() //Creates the monster list
     }
     
     
@@ -224,6 +225,11 @@ class ViewController: UIViewController {
         itemList.append(Item.init(nombre: "Poción pequeña de sanación", coste: 50, ataque: 0, defensa: 0, magia: 0, suerte: 0, imagen: UIImage(named: "potion2")))
         itemList.append(Item.init(nombre: "Gran poción de sanación", coste: 100, ataque: 0, defensa: 0, magia: 0, suerte: 0, imagen: UIImage(named: "potion")))
  }
+    func monsterDeclaration(){
+        monsterList.append(Monster.init(name: "Golem", atq: 10, health: 4, exp: 9, money: 10, image: UIImage(named: "monster1")!))
+        monsterList.append(Monster.init(name: "Trent", atq: 6, health: 6, exp: 9, money: 10, image: UIImage(named: "monster2")!))
+        monsterList.append(Monster.init(name: "Rat", atq: 4, health: 2, exp: 4, money: 8, image: UIImage(named: "monster3")!))
+    }
     func charItemIni(){
         char1Item.append(itemList[4])//Casco
         char1Item.append(itemList[7])//Pecho

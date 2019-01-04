@@ -738,12 +738,32 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DFt-Gu-i9T">
+                                <rect key="frame" x="16" y="119" width="343" height="295"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="mJZ-2r-luJ" id="I0Q-we-4Ip"/>
+                                    <outlet property="delegate" destination="mJZ-2r-luJ" id="AXO-la-gq6"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8U-7g-BVx">
+                                <rect key="frame" x="148" y="422" width="79" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="FIGHT"/>
+                                <connections>
+                                    <action selector="onBtnFightClick:" destination="mJZ-2r-luJ" eventType="touchUpInside" id="aFT-Ay-QXa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="o1c-Yv-Uen"/>
                     </view>
                     <connections>
                         <outlet property="btnBack" destination="aye-1T-ZmQ" id="R6J-Ia-7mc"/>
+                        <outlet property="btnFight" destination="g8U-7g-BVx" id="5fV-Zd-GKW"/>
+                        <outlet property="pickerView" destination="DFt-Gu-i9T" id="Wuz-Aq-ebe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jvb-nN-gzX" userLabel="First Responder" sceneMemberID="firstResponder"/>
