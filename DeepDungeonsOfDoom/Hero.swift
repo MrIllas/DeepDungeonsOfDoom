@@ -69,6 +69,14 @@ class Hero{
         return self.suerte + calc(type: "lck")
     }
     
+    func getMoney()-> Int{
+        return self.dinero
+    }
+    
+    func getExp()-> Int{
+        return self.exp
+    }
+    
     func calc(type:String) -> Int{
         var toReturn:Int! = 0
         for i in Stuff{
@@ -94,5 +102,9 @@ class Hero{
     
     func getStuff(index:Int)-> Item{
         return self.Stuff[index]
+    }
+    
+    func setMoney(money:Int){
+        self.dinero = money
     }
 }

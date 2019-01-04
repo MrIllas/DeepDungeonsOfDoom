@@ -10,6 +10,7 @@ import UIKit
 
 class Inventory: UIViewController {
     
+    @IBOutlet weak var btnBack: UIButton!
     
     @IBOutlet weak var imgHero: UIImageView!
     @IBOutlet weak var imgHelmet: UIImageView!
@@ -46,6 +47,16 @@ class Inventory: UIViewController {
         imgSword.image = charHero[selectedHero].getStuff(index: 4).getImagen()
         
         labelName.text = charHero[selectedHero].getNombre()
+        labelAtq.text = String(charHero[selectedHero].getAtq())
+        labelDef.text = String(charHero[selectedHero].getDef())
+        labelLck.text = String(charHero[selectedHero].getLck())
+        labelMag.text = String(charHero[selectedHero].getMoney())
+        labelExp.text = String(charHero[selectedHero].getExp())
+    }
+    
+    @IBAction func onBtnBackClick(_ sender: Any) {
+        let newView = storyboard!.instantiateViewController(withIdentifier: "menu") as? Menu
+        self.present(newView!, animated: true, completion: nil)
         
     }
     

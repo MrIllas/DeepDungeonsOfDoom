@@ -29,18 +29,18 @@ class Menu: UIViewController {
     }
     
     @IBAction func onClickToDungeon(_ sender: Any) {
-        let newView = storyboard!.instantiateViewController(withIdentifier: "start") as? ViewController
+        let newView = storyboard!.instantiateViewController(withIdentifier: "dungeon") as? Dungeon
         self.present(newView!, animated: true, completion: nil)
     }
     
     @IBAction func onClickToInventory(_ sender: Any) {
-        
-    }
+        let newView = storyboard!.instantiateViewController(withIdentifier: "inventory") as? Inventory
+	        self.present(newView!, animated: true, completion: nil)    }
     
     
     @IBAction func onClickToShop(_ sender: Any) {
-        
-    }
+        let newView = storyboard!.instantiateViewController(withIdentifier: "shop") as? Shop
+        self.present(newView!, animated: true, completion: nil)    }
     /*
     // MARK: - Navigation
 

@@ -51,4 +51,7 @@ class Item {
     func getImagen()-> UIImage{
         return self.imagen
     }
+    func getCost()-> Int {
+        return self.coste
+    }
 }

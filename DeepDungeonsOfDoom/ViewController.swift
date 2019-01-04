@@ -60,7 +60,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var labelChar3Lck: UILabel!
     
     
-    var startMoney:Int! = 0
+    var startMoney:Int! = 300
     var startExp:Int! = 0
    
     
@@ -232,8 +232,19 @@ class ViewController: UIViewController {
         char1Item.append(itemList[16])//Espada
         char1Item.append(itemList[29])//Escudo
         
-        char2Item.append(itemList[1])
-        char3Item.append(itemList[1])
+        char2Item.append(itemList[4])//Casco
+        char2Item.append(itemList[7])//Pecho
+        char2Item.append(itemList[8])//Botas
+        char2Item.append(itemList[15])//Anillo
+        char2Item.append(itemList[16])//Espada
+        char2Item.append(itemList[29])//Escudo
+        
+        char3Item.append(itemList[4])//Casco
+        char3Item.append(itemList[7])//Pecho
+        char3Item.append(itemList[8])//Botas
+        char3Item.append(itemList[15])//Anillo
+        char3Item.append(itemList[16])//Espada
+        char3Item.append(itemList[29])//Escudo
     }
     
     func charDeclaration(){
