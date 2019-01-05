@@ -49,6 +49,8 @@ class Monster{
     func getVida()-> Int{
         return self.health
     }
+    
+    
 }
 
 

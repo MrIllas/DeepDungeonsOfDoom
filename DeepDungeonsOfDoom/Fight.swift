@@ -17,6 +17,10 @@ class Fight: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     @IBOutlet weak var heroImg: UIImageView!
     @IBOutlet weak var monsterHitLab: UILabel!
     @IBOutlet weak var heroHitLab: UILabel!
+    @IBOutlet weak var monsterHpLab: UILabel!
+    @IBOutlet weak var heroHpLab: UILabel!
+    
+    
     
     @IBOutlet weak var monsterPickerView: UIPickerView!
     @IBOutlet weak var heroPickerView: UIPickerView!
@@ -52,6 +56,12 @@ class Fight: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         "dice12"
     ]
     
+    var dNumHero:Int = 0
+    var dNumMonster:Int = 0
+    var monsterHit:Int = 0
+    var heroHit:Int = 0
+    var monsterHp:Int = 0
+    
     @IBAction func onBtnBackClick(_ sender: Any) {
         let newView = storyboard!.instantiateViewController(withIdentifier: "dungeon") as? Dungeon
         self.present(newView!, animated: true, completion: nil)
@@ -60,38 +70,48 @@ class Fight: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        monsterHp = monsterList[numMonster].getVida()
         updater()
         // Do any additional setup after loading the view.
     }
     
     func updater(){
+        
         monsterImg.image = monsterList[numMonster].getImage()
         heroImg.image =  charHero[selectedHero].getImagen()
         
-        var hpHero:Int = charHero[selectedHero].getVida()
-        var xCorazon:Int = 160
-        for i in 0..<hpHero{
-            var viewCorazon = UIImageView(image: UIImage(named: "heart"))
-            viewCorazon.frame = CGRect(x: xCorazon, y: 740, width: 20, height: 20)
-            view.addSubview(viewCorazon)
-            xCorazon += 22
-            
-        }
+        heroHitLab.text = "\(heroHit)"
+        monsterHitLab.text = "\(monsterHit)"
         
-        var hpMonster:Int = monsterList[numMonster].getVida()
-        xCorazon = 160
-        for i in 0..<hpMonster{
-            var viewCorazon = UIImageView(image: UIImage(named: "heart"))
-            viewCorazon.frame = CGRect(x: xCorazon, y: 160, width: 20, height: 20)
-            view.addSubview(viewCorazon)
-            xCorazon += 22
-            
-        }
+        heroHpLab.text = "\(charHero[selectedHero].getVida())"
+
+        monsterHpLab.text = "\(monsterHp)"
+        
     }
     
     //HERO PICKERVIEW
-    func numberOfComponents(in heroPickerView: UIPickerView) -> Int {
-        return 3
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        if pickerView == monsterPickerView{
+        if monsterList[numMonster].getAtq() <= 10{
+            dNumMonster = 1
+            
+        }else if monsterList[numMonster].getAtq() <= 25{
+            dNumMonster = 2
+        }else if monsterList[numMonster].getAtq() > 25{
+            dNumMonster = 3
+        }
+            return dNumMonster
+        }else{
+        if charHero[selectedHero].getHit() <= 10{
+            dNumHero = 1
+        }else if charHero[selectedHero].getHit() <= 25{
+            dNumHero = 2
+        }else if charHero[selectedHero].getHit() > 25{
+            dNumHero = 3
+        }
+            return dNumHero
+        }
+        return 1
     }
     
     func pickerView(_ heroPickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -123,6 +143,51 @@ class Fight: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         return tmpView
     }
     
+    @IBAction func onBtnAttackClick(_ sender: Any) {
+        monsterHit = 0
+        heroHit = 0
+        
+        for h in 0..<dNumMonster{
+            var number:Int = Int.random(in: 0..<12)
+            monsterPickerView.selectRow(number, inComponent: h, animated: false)
+            monsterHit = monsterHit + (number + 1)
+        }
+        
+        for h in 0..<dNumHero{
+            var number:Int = Int.random(in: 0..<12)
+            heroPickerView.selectRow(number, inComponent: h, animated: false)
+            heroHit = heroHit + (number + 1)
+        }
+        
+        if heroHit < monsterHit{
+            charHero[selectedHero].lessVida()
+            print("Hero: \(charHero[selectedHero].getVida())")
+        }else if heroHit > monsterHit{
+            monsterHp = monsterHp - 1
+            print("Monster: \(monsterHp)")
+        }
+        
+        if monsterHp == 0{
+            charHero[selectedHero].setMoney(money: monsterList[numMonster].getMoney())
+            charHero[selectedHero].setExp(exp: monsterList[numMonster].getExp())
+            
+            let alert = UIAlertController(title: "End of the battle", message: "You win!", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            
+            onBtnBackClick((Any).self)
+        }
+        if charHero[selectedHero].getVida() == 0{
+            onBtnBackClick((Any).self)
+            
+            let alert = UIAlertController(title: "End of the battle", message: "You lose!", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+            onBtnBackClick((Any).self)
+        }
+        
+        updater()
+    }
     
-    //MONSTER PICKERVIEW
 }

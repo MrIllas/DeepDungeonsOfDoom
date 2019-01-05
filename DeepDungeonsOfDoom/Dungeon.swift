@@ -51,10 +51,10 @@ class Dungeon: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         var expLabel = UILabel(frame: CGRect(x: 105, y: 47, width: 100, height: 21))
         var moneyLabel = UILabel(frame: CGRect(x: 105    , y: 68, width: 100, height: 21))
         
-        nameLabel.text = "Attack: \(monsterList[row].getName())"
-        atqLabel.text = "Defense: \(monsterList[row].getAtq())"
-        expLabel.text = "Magic: \(monsterList[row].getExp())"
-        moneyLabel.text = "Lucky: \(monsterList[row].getMoney())"
+        nameLabel.text = "Name: \(monsterList[row].getName())"
+        atqLabel.text = "Damage: \(monsterList[row].getAtq())"
+        expLabel.text = "Exp: \(monsterList[row].getExp())"
+        moneyLabel.text = "Money: \(monsterList[row].getMoney())"
         
         nameLabel.font = UIFont(name: "Halvetica", size: 12)
         atqLabel.font = UIFont(name: "Halvetica", size: 12)
@@ -82,6 +82,14 @@ class Dungeon: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         numMonster = numMonster + 0
+        
+        if charHero[selectedHero].getVida() == 0{
+            btnFight.isEnabled = false
+            let alert = UIAlertController(title: "Error", message: "You don't have life to play. Buy a potion to fight again!", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
         // Do any additional setup after loading the view.
     }
     

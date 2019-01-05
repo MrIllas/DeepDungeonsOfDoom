@@ -111,4 +111,20 @@ class Hero{
     func setStuff(index:Int, item:Item){
         self.Stuff[index] = item
     }
+    
+    func getHit()-> Int{
+        var hit:Int = 0
+        
+        hit = (ataque+defensa+magia+suerte)/4
+        
+        return hit
+    }
+    
+    func lessVida (){
+        self.vida = vida - 1
+    }
+    
+    func setExp(exp:Int){
+        self.exp = self.exp + 1
+    }
 }

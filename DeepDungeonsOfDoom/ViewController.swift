@@ -227,8 +227,8 @@ class ViewController: UIViewController {
  }
     func monsterDeclaration(){
         monsterList.append(Monster.init(name: "Golem", atq: 10, health: 4, exp: 9, money: 10, image: UIImage(named: "monster1")!))
-        monsterList.append(Monster.init(name: "Trent", atq: 6, health: 6, exp: 9, money: 10, image: UIImage(named: "monster2")!))
-        monsterList.append(Monster.init(name: "Rat", atq: 4, health: 2, exp: 4, money: 8, image: UIImage(named: "monster3")!))
+        monsterList.append(Monster.init(name: "Trent", atq: 25, health: 6, exp: 9, money: 10, image: UIImage(named: "monster2")!))
+        monsterList.append(Monster.init(name: "Rat", atq: 26, health: 2, exp: 4, money: 8, image: UIImage(named: "monster3")!))
     }
     func charItemIni(){
         char1Item.append(itemList[4])//Casco
