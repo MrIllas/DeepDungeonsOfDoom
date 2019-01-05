@@ -75,7 +75,8 @@ class Dungeon: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     @IBAction func onBtnFightClick(_ sender: Any) {
-        
+        let newView = storyboard!.instantiateViewController(withIdentifier: "fight") as? Fight
+        self.present(newView!, animated: true, completion: nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
