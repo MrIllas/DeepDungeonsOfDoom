@@ -21,6 +21,7 @@ class Fight: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     @IBOutlet weak var monsterPickerView: UIPickerView!
     @IBOutlet weak var heroPickerView: UIPickerView!
     
+    
     var diceHero:[String] = [
         "dice1U",
         "dice2U",
@@ -59,8 +60,33 @@ class Fight: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        updater()
         // Do any additional setup after loading the view.
+    }
+    
+    func updater(){
+        monsterImg.image = monsterList[numMonster].getImage()
+        heroImg.image =  charHero[selectedHero].getImagen()
+        
+        var hpHero:Int = charHero[selectedHero].getVida()
+        var xCorazon:Int = 160
+        for i in 0..<hpHero{
+            var viewCorazon = UIImageView(image: UIImage(named: "heart"))
+            viewCorazon.frame = CGRect(x: xCorazon, y: 740, width: 20, height: 20)
+            view.addSubview(viewCorazon)
+            xCorazon += 22
+            
+        }
+        
+        var hpMonster:Int = monsterList[numMonster].getVida()
+        xCorazon = 160
+        for i in 0..<hpMonster{
+            var viewCorazon = UIImageView(image: UIImage(named: "heart"))
+            viewCorazon.frame = CGRect(x: xCorazon, y: 160, width: 20, height: 20)
+            view.addSubview(viewCorazon)
+            xCorazon += 22
+            
+        }
     }
     
     //HERO PICKERVIEW
@@ -92,10 +118,6 @@ class Fight: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
             tempImg.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
             tmpView.addSubview(tempImg)
         }
-        
-        
-        
-        
         
         
         return tmpView

@@ -8,13 +8,14 @@
 
 import UIKit
 
+var numMonster:Int! = 0
+
 class Dungeon: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var btnBack: UIButton!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var btnFight: UIButton!
     
-    var theMonster:Monster!
     
     @IBAction func onBtnBackClick(_ sender: Any) {
         let newView = storyboard!.instantiateViewController(withIdentifier: "menu") as? Menu
@@ -34,7 +35,7 @@ class Dungeon: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        theMonster = monsterList[row]
+        numMonster = row
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
@@ -80,6 +81,7 @@ class Dungeon: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        numMonster = numMonster + 0
         // Do any additional setup after loading the view.
     }
     

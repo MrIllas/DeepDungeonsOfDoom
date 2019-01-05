@@ -45,6 +45,10 @@ class Monster{
     func getImage()-> UIImage{
         return self.image
     }
+    
+    func getVida()-> Int{
+        return self.health
+    }
 }
 
 
