@@ -20,10 +20,11 @@ class Item {
     var defensa:Int = 0
     var magia:Int = 0
     var suerte:Int = 0
+    var type:String = ""
     
     var imagen:UIImage! = UIImage(named: "hero4")
     
-    init(nombre:String!, coste:Int!, ataque:Int!, defensa:Int!, magia:Int!, suerte:Int!, imagen:UIImage?){
+    init(nombre:String!, coste:Int!, ataque:Int!, defensa:Int!, magia:Int!, suerte:Int!, imagen:UIImage?, type:String){
         self.nombre = nombre
         self.coste = coste
         
@@ -31,7 +32,7 @@ class Item {
         self.defensa = defensa
         self.magia = magia
         self.suerte = suerte
-        
+        self.type = type
         self.imagen = imagen
     }
     
@@ -54,4 +55,8 @@ class Item {
     func getCost()-> Int {
         return self.coste
     }
+    func getType()-> String{
+        return self.type
+    }
+    
 }

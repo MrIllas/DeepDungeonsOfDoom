@@ -36,10 +36,8 @@ class Shop: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
         labelMoney.text = String(playerMoney)
     }
     
-    var cc:Int = 0
-    var theCost:Int = 0
+    var theCost:Int = 250
     var theNumber:Int = 0
-    
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -97,15 +95,44 @@ class Shop: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
         tmpView.addSubview(tempImg)
         tmpView.addSubview(costLabel)
         
-        cc = cc + 1
         return tmpView
     }
     
     
     
     @IBAction func onClickBuy(_ sender: Any) {
-        if playerMoney <= theCost {
-            charHero[selectedHero].setMoney(money: playerMoney - theCost)
+        if playerMoney >= theCost {
+            charHero[selectedHero].setMoney(money: (playerMoney - theCost))
+            print("\(itemList[theNumber].getType())")
+            switch itemList[theNumber].getType(){
+            case "potion":
+                
+                break
+            case "shield":
+                charHero[selectedHero].setStuff(index: 5, item: itemList[theNumber])
+                break
+            case "weapon":
+                charHero[selectedHero].setStuff(index: 4, item: itemList[theNumber])
+                break
+            case "accesory":
+                charHero[selectedHero].setStuff(index: 3, item: itemList[theNumber])
+                break
+            case "coat":
+                charHero[selectedHero].setStuff(index: 6, item: itemList[theNumber])
+                break
+            case "boots":
+                charHero[selectedHero].setStuff(index: 2, item: itemList[theNumber])
+                break
+            case "chest":
+                charHero[selectedHero].setStuff(index: 1, item: itemList[theNumber])
+                break
+            case "head":
+                charHero[selectedHero].setStuff(index: 0, item: itemList[theNumber])
+                break
+            default:
+                print("no")
+            }
+            updater()
         }
     }
     

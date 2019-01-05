@@ -107,4 +107,8 @@ class Hero{
     func setMoney(money:Int){
         self.dinero = money
     }
+    
+    func setStuff(index:Int, item:Item){
+        self.Stuff[index] = item
+    }
 }

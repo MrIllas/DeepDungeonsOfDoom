@@ -43,14 +43,15 @@ class Inventory: UIViewController {
         imgArmour.image = charHero[selectedHero].getStuff(index: 1).getImagen()
         imgBoots.image = charHero[selectedHero].getStuff(index: 2).getImagen()
         imgRing.image = charHero[selectedHero].getStuff(index: 4).getImagen()
-        imgShield.image = charHero[selectedHero].getStuff(index: 5).getImagen()
         imgSword.image = charHero[selectedHero].getStuff(index: 4).getImagen()
+        imgShield.image = charHero[selectedHero].getStuff(index: 5).getImagen()
         
         labelName.text = charHero[selectedHero].getNombre()
         labelAtq.text = String(charHero[selectedHero].getAtq())
         labelDef.text = String(charHero[selectedHero].getDef())
         labelLck.text = String(charHero[selectedHero].getLck())
-        labelMag.text = String(charHero[selectedHero].getMoney())
+        labelMag.text = String(charHero[selectedHero].getMag())
+        labelMoney.text = String(charHero[selectedHero].getMoney())
         labelExp.text = String(charHero[selectedHero].getExp())
     }
     

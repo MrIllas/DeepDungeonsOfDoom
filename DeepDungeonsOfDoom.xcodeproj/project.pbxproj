@@ -20,6 +20,7 @@
 		19D5174221AF0DFB003687C0 /* DeepDungeonsOfDoomUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D5174121AF0DFB003687C0 /* DeepDungeonsOfDoomUITests.swift */; };
 		19D5175021AF174B003687C0 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D5174F21AF174B003687C0 /* Hero.swift */; };
 		19D5175221AF193D003687C0 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D5175121AF193D003687C0 /* Item.swift */; };
+		FA31C32221E11A7400FCD951 /* Fight.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31C32121E11A7400FCD951 /* Fight.swift */; };
 		FAF4695D21DFF85A00D9440A /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF4695C21DFF85A00D9440A /* Monster.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		19D5174321AF0DFB003687C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19D5174F21AF174B003687C0 /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		19D5175121AF193D003687C0 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		FA31C32121E11A7400FCD951 /* Fight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fight.swift; sourceTree = "<group>"; };
 		FAF4695C21DFF85A00D9440A /* Monster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,6 +126,7 @@
 				195F657F21CABE2500EE942F /* Inventory.swift */,
 				195F658121CABE3000EE942F /* Shop.swift */,
 				FAF4695C21DFF85A00D9440A /* Monster.swift */,
+				FA31C32121E11A7400FCD951 /* Fight.swift */,
 			);
 			path = DeepDungeonsOfDoom;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				195F658021CABE2500EE942F /* Inventory.swift in Sources */,
 				19D5172221AF0DFB003687C0 /* AppDelegate.swift in Sources */,
 				19D5175021AF174B003687C0 /* Hero.swift in Sources */,
+				FA31C32221E11A7400FCD951 /* Fight.swift in Sources */,
 				195F657E21CABDCA00EE942F /* Dungeon.swift in Sources */,
 				1902F52C21C191E700AA8290 /* Menu.swift in Sources */,
 				195F658221CABE3000EE942F /* Shop.swift in Sources */,
