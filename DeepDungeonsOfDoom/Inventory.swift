@@ -42,7 +42,7 @@ class Inventory: UIViewController {
         imgHelmet.image = charHero[selectedHero].getStuff(index: 0).getImagen()
         imgArmour.image = charHero[selectedHero].getStuff(index: 1).getImagen()
         imgBoots.image = charHero[selectedHero].getStuff(index: 2).getImagen()
-        imgRing.image = charHero[selectedHero].getStuff(index: 4).getImagen()
+        imgRing.image = charHero[selectedHero].getStuff(index: 3).getImagen()
         imgSword.image = charHero[selectedHero].getStuff(index: 4).getImagen()
         imgShield.image = charHero[selectedHero].getStuff(index: 5).getImagen()
         

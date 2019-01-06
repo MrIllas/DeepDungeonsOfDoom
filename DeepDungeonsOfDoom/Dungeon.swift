@@ -85,9 +85,6 @@ class Dungeon: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         
         if charHero[selectedHero].getVida() == 0{
             btnFight.isEnabled = false
-            let alert = UIAlertController(title: "Error", message: "You don't have life to play. Buy a potion to fight again!", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
         }
         
         // Do any additional setup after loading the view.

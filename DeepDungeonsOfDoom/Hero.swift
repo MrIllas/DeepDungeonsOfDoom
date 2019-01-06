@@ -127,4 +127,8 @@ class Hero{
     func setExp(exp:Int){
         self.exp = self.exp + 1
     }
+    
+    func incressMoney(money:Int){
+        self.dinero = self.dinero + money
+    }
 }

@@ -12,6 +12,7 @@ class Fight: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     @IBOutlet weak var btnClick: UIButton!
     @IBOutlet weak var btnAttack: UIButton!
+    @IBOutlet weak var btnFinish: UIButton!
     
     @IBOutlet weak var monsterImg: UIImageView!
     @IBOutlet weak var heroImg: UIImageView!
@@ -66,10 +67,17 @@ class Fight: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         let newView = storyboard!.instantiateViewController(withIdentifier: "dungeon") as? Dungeon
         self.present(newView!, animated: true, completion: nil)
     }
+    @IBAction func onBtnFinishClick(_ sender: Any) {
+        onBtnBackClick((Any).self)
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        btnFinish.isHidden = true
+        btnFinish.isEnabled = false
+        
         monsterHp = monsterList[numMonster].getVida()
         updater()
         // Do any additional setup after loading the view.
@@ -168,23 +176,24 @@ class Fight: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         }
         
         if monsterHp == 0{
-            charHero[selectedHero].setMoney(money: monsterList[numMonster].getMoney())
+            charHero[selectedHero].incressMoney(money: monsterList[numMonster].getMoney())
             charHero[selectedHero].setExp(exp: monsterList[numMonster].getExp())
             
             let alert = UIAlertController(title: "End of the battle", message: "You win!", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+            self.present(alert, animated: true, completion: nil)
             
-            onBtnBackClick((Any).self)
+            btnFinish.isEnabled = true
+            btnFinish.isHidden = false
         }
         if charHero[selectedHero].getVida() == 0{
-            onBtnBackClick((Any).self)
             
             let alert = UIAlertController(title: "End of the battle", message: "You lose!", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
+            btnFinish.isEnabled = true
+            btnFinish.isHidden = false
             
-            onBtnBackClick((Any).self)
         }
         
         updater()
