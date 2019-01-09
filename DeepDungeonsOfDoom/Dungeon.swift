@@ -31,7 +31,7 @@ class Dungeon: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-        return 180
+        return 130
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -40,13 +40,13 @@ class Dungeon: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         
-        var tmpView:UIView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
+        var tmpView:UIView = UIView(frame: CGRect(x: 0, y: 0, width: 230, height: 130))
         
         var img:UIImage = monsterList[row].getImage()
         var tempImg = UIImageView(image: img)
         tempImg.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         
-        var nameLabel = UILabel(frame: CGRect(x: 105, y: 5, width: 100, height: 21))
+        var nameLabel = UILabel(frame: CGRect(x: 105, y: 5, width: 200, height: 21))
         var atqLabel = UILabel(frame: CGRect(x: 105, y: 26, width: 100, height: 21))
         var expLabel = UILabel(frame: CGRect(x: 105, y: 47, width: 100, height: 21))
         var moneyLabel = UILabel(frame: CGRect(x: 105    , y: 68, width: 100, height: 21))

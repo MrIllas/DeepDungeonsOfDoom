@@ -16,18 +16,21 @@ var char2Item:[Item]! = []
 var char3Item:[Item]! = []
 
 var selectedHero:Int = 0
+var check:Int = 0
 class ViewController: UIViewController {
     
      override func viewDidLoad() {
         super.viewDidLoad()
         
         //Initialize objects
-        
-        itemDeclaration()//Crea los items
-        charItemIni() //Guarda los items iniciales de los heroes
-        charDeclaration() //Crea los Heroes
+        if check == 0{
+            itemDeclaration()//Crea los items
+            charItemIni() //Guarda los items iniciales de los heroes
+            charDeclaration() //Crea los Heroes
+            monsterDeclaration() //Creates the monster list
+            check = check + 1
+        }
         writeHeroList() //Crea la lista de heroes
-        monsterDeclaration() //Creates the monster list
     }
     
     
@@ -117,15 +120,6 @@ class ViewController: UIViewController {
         labelChar3Lck.text = String(charHero[2].getLck())
         
         for h in charHero{
-        
-            /*//Portrait
-            var imagePortrait = h.getImagen()
-            var imageViewPortrait = UIImageView(image: imagePortrait)
-            imageViewPortrait.frame = CGRect(x: xPortrait, y: yPortrait, width: 50, height: 70)
-            view.addSubview(imageViewPortrait)
-            //yPortrait += 147
-            */
-            //HP
             hp = h.getVida()
             var xCorazon:Int = 230
             for i in 0..<hp{
@@ -133,40 +127,8 @@ class ViewController: UIViewController {
                 viewCorazon.frame = CGRect(x: xCorazon, y: yPortrait, width: 20, height: 20)
                 view.addSubview(viewCorazon)
                 xCorazon += 22
-                
             }
             yPortrait += 147
-            /*
-            
-            
-            //Stats
-            
-                //name
-            var name = UILabel(frame: CGRect(x: xNombre, y: yPortrait, width: 200, height: 21))
-            name.text = h.getNombre()
-            name.font = UIFont(name: "Halvetica", size: 12)
-            name.textColor = UIColor.white
-            view.addSubview(name)
-                //Atq
-            var atqName = UILabel(frame: CGRect(x: xNombre, y: yPortrait+yDiferrence1, width: 200, height: 21))
-            atqName.font = UIFont.systemFont(ofSize: 10)
-            atqName.text = "ATQ"
-            
-            atqName.textColor = UIColor.white
-            view.addSubview(atqName)
-            var imageAtq = UIImageView(image: UIImage(named: "damage"))
-            imageAtq.frame = CGRect(x: xNombre+22, y: yPortrait+yDiferrence1, width: 20, height: 20)
-            view.addSubview(imageAtq)
-            
-            /*var atqName = UILabel(frame: CGRect(x: xNombre, y: yPortrait+yDiferrence1, width: 200, height: 21))
-            atqName.font = UIFont.systemFont(ofSize: 10)
-            atqName.text = "ATQ"*/
-            
-            atqName.textColor = UIColor.white
-            view.addSubview(atqName)
-                //DEF
-            yPortrait += 147
- */
         }
     }
     
@@ -223,12 +185,13 @@ class ViewController: UIViewController {
         
         //Pociones
         itemList.append(Item.init(nombre: "Poción pequeña de sanación", coste: 50, ataque: 0, defensa: 0, magia: 0, suerte: 0, imagen: UIImage(named: "potion2"), type: "potion"))
-        itemList.append(Item.init(nombre: "Gran poción de sanación", coste: 100, ataque: 0, defensa: 0, magia: 0, suerte: 0, imagen: UIImage(named: "potion"), type: "potion"))
+        
+        //itemList.append(Item.init(nombre: "Gran poción de sanación", coste: 100, ataque: 0, defensa: 0, magia: 0, suerte: 0, imagen: UIImage(named: "potion"), type: "potion"))
  }
     func monsterDeclaration(){
-        monsterList.append(Monster.init(name: "Golem", atq: 10, health: 4, exp: 9, money: 10, image: UIImage(named: "monster1")!))
-        monsterList.append(Monster.init(name: "Trent", atq: 25, health: 6, exp: 9, money: 10, image: UIImage(named: "monster2")!))
-        monsterList.append(Monster.init(name: "Rat", atq: 26, health: 2, exp: 4, money: 8, image: UIImage(named: "monster3")!))
+        monsterList.append(Monster.init(name: "Golem", atq: 10, health: 4, exp: 9, money: 50, image: UIImage(named: "monster1")!))
+        monsterList.append(Monster.init(name: "Trent", atq: 25, health: 6, exp: 9, money: 70, image: UIImage(named: "monster2")!))
+        monsterList.append(Monster.init(name: "Rat", atq: 26, health: 2, exp: 4, money: 100, image: UIImage(named: "monster3")!))
     }
     func charItemIni(){
         char1Item.append(itemList[4])//Casco

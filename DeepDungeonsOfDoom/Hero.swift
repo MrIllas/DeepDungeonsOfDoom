@@ -124,6 +124,10 @@ class Hero{
         self.vida = vida - 1
     }
     
+    func moreVida(v:Int){
+        self.vida = vida + v
+    }
+    
     func setExp(exp:Int){
         self.exp = self.exp + 1
     }

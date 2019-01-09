@@ -44,7 +44,7 @@ class Shop: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
     }
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-        return 180
+        return 130
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -58,7 +58,7 @@ class Shop: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         
-        var tmpView:UIView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
+        var tmpView:UIView = UIView(frame: CGRect(x: 0, y: 0, width: 250, height: 130))
         
         var img:UIImage = itemList[row].getImagen()
         var tempImg = UIImageView(image: img)
@@ -69,24 +69,28 @@ class Shop: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
         var magLabel = UILabel(frame: CGRect(x: 105, y: 47, width: 100, height: 21))
         var lckLabel = UILabel(frame: CGRect(x: 105	, y: 68, width: 100, height: 21))
         var costLabel = UILabel(frame: CGRect(x: 190, y: 5, width: 100, height: 21))
+        var typeLabel = UILabel(frame: CGRect(x: 190, y: 26, width: 200	, height: 21))
         
         atqLabel.text = "Attack: \(itemList[row].getAtq())"
         defLabel.text = "Defense: \(itemList[row].getDef())"
         magLabel.text = "Magic: \(itemList[row].getMag())"
         lckLabel.text = "Lucky: \(itemList[row].getLck())"
         costLabel.text = "Cost: \(itemList[row].getCost())"
+        typeLabel.text = "Type: \(itemList[row].getType())"
         
         atqLabel.font = UIFont(name: "Halvetica", size: 12)
         defLabel.font = UIFont(name: "Halvetica", size: 12)
         magLabel.font = UIFont(name: "Halvetica", size: 12)
         lckLabel.font = UIFont(name: "Halvetica", size: 12)
         costLabel.font = UIFont(name: "Halvetica", size: 12)
+        typeLabel.font = UIFont(name: "Halvetica", size: 12)
         
         atqLabel.textColor = UIColor.white
         defLabel.textColor = UIColor.white
         magLabel.textColor = UIColor.white
         lckLabel.textColor = UIColor.white
         costLabel.textColor = UIColor.white
+        typeLabel.textColor = UIColor.white
         
         tmpView.addSubview(atqLabel)
         tmpView.addSubview(defLabel)
@@ -94,6 +98,7 @@ class Shop: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
         tmpView.addSubview(lckLabel)
         tmpView.addSubview(tempImg)
         tmpView.addSubview(costLabel)
+        tmpView.addSubview(typeLabel)
         
         return tmpView
     }
@@ -101,11 +106,23 @@ class Shop: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
     
     
     @IBAction func onClickBuy(_ sender: Any) {
+        var act:Int = playerMoney
         if playerMoney >= theCost {
+            var ok:Bool = true
             charHero[selectedHero].setMoney(money: (playerMoney - theCost))
             print("\(itemList[theNumber].getType())")
             switch itemList[theNumber].getType(){
             case "potion":
+                if charHero[selectedHero].getVida() >= 6{
+                    charHero[selectedHero].setMoney(money: (act))
+                    let alert = UIAlertController(title: "No", message: "You already have your max hp!", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                    ok = false
+                }else{
+                    charHero[selectedHero].moreVida(v: 1)
+                    
+                }
                 
                 break
             case "shield":
@@ -132,6 +149,12 @@ class Shop: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
             default:
                 print("no")
             }
+            if ok{
+                let alert = UIAlertController(title: "Item bought", message: ":D", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+            
             updater()
         }
     }
